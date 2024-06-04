@@ -9,7 +9,13 @@ RunModel = function(r, directory, demo.locals, demo.tours, num_locals, num_tours
     for(y in 1:years){
       #record knowledge per group (per year)
       towrite = Output(r, demo.locals, demo.tours, num_locals, num_tours, years, knowtrans, scenarios[r], pop, y)
-      
+      if(y==1){
+        write.table(towrite[0,], paste(directory, "/Output/yearlysummaryHeader.csv", sep=""), row.names=F, col.names=T, sep=",", append=F)
+        write.table(towrite, paste(directory, "/Output/yearlysummary.csv", sep=""), row.names=F, col.names=F, sep=",", append=F)
+      }else{
+        write.table(towrite, paste(directory, "/Output/yearlysummary.csv", sep=""), row.names=F, col.names=F, sep=",", append=T)
+      }
+
       #interact tourist to locals, within demo groups
       for(i in 1:3){
         holdpop = pop[pop$demo!=i,]

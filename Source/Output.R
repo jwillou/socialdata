@@ -9,5 +9,13 @@ Output = function(r, demo.locals, demo.tours, num_locals, num_tours, years, know
   
   towrite = c(demo.locals, demo.tours, num_locals, num_tours, years, knowtrans, 
     scenarios$tours_local[r], scenarios$tours_tours[r], scenarios$local_local[r], scenarios$local_misd[r], knowsumm)
+  towrite = t(as.data.frame(towrite))
+  colnames(towrite) = c("demo.locals1", "demo.locals2", "demo.locals3", "demo.tours1", "demo.tours2","demo.tours3",
+                        "num_locals", "num_tours", "years", "knowtrans", 
+                        "tours_local", "tours_tours", "local_local", "local_misd", 
+                        "dem1toursN", "dem1toursK", "dem1localN", "dem1localK", 
+                        "dem2toursN", "dem2toursK", "dem2localN", "dem2localK", 
+                        "dem3toursN", "dem3toursK", "dem3localN", "dem3localK")  
+  
   return(towrite)
 }

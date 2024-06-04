@@ -15,4 +15,4 @@ library(scales)      #need this for plotting, this allows transparency in colors
 source(paste(getwd(), "/Initialize.R", sep = ''))
 source(paste(getwd(), "/Interact.R", sep = ''))
 source(paste(getwd(), "/Output.R", sep = ''))
-source(paste(getwd(), "/Output.R", sep = ''))
+#source(paste(getwd(), "/Output.R", sep = ''))
