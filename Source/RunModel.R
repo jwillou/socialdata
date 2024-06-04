@@ -3,7 +3,13 @@ RunModel = function(r, directory, demo.locals, demo.tours, num_locals, num_tours
     #initialize population of locals and tourists, assuming 3 local groups proportions set by run parameters
     pop = Initialize(num_locals, num_tours, demo_locals, demo_tours)
     
+    #initialize output dataframe
+    OUT = NULL
+    
     for(y in 1:years){
+      #record knowledge per group (per year)
+      towrite = Output(r, demo.locals, demo.tours, num_locals, num_tours, years, knowtrans, scenarios[r], pop, y)
+      
       #interact tourist to locals, within demo groups
       for(i in 1:3){
         holdpop = pop[pop$demo!=i,]
@@ -40,7 +46,7 @@ RunModel = function(r, directory, demo.locals, demo.tours, num_locals, num_tours
         pop = rbind(holdpop, subpop)
       }
     
-    #Output results
+    #Output results for full run
     
   }
 }

@@ -14,5 +14,5 @@ library(scales)      #need this for plotting, this allows transparency in colors
 #source functions
 source(paste(getwd(), "/Initialize.R", sep = ''))
 source(paste(getwd(), "/Interact.R", sep = ''))
-#source(paste(getwd(), "/DemographicShift", sep = ''))
-#source(paste(getwd(), "/Predictors", sep = ''))
+source(paste(getwd(), "/Output.R", sep = ''))
+source(paste(getwd(), "/Output.R", sep = ''))
