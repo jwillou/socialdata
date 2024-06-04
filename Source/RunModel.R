@@ -7,8 +7,10 @@ RunModel = function(r, directory, demo.locals, demo.tours, num_locals, num_tours
     OUT = NULL
     
     for(y in 1:years){
-      #record knowledge per group (per year)
+      #summarize knowledge per group (per year)
       towrite = Output(r, demo.locals, demo.tours, num_locals, num_tours, years, knowtrans, scenarios, pop, y)
+      
+      #write to files, including headers on year 1
       if(y==1){
         write.table(towrite[0,], paste(directory, "/Output/yearlysummaryHeader.csv", sep=""), row.names=F, col.names=T, sep=",", append=F)
         write.table(towrite, paste(directory, "/Output/yearlysummary.csv", sep=""), row.names=F, col.names=F, sep=",", append=F)
@@ -51,6 +53,7 @@ RunModel = function(r, directory, demo.locals, demo.tours, num_locals, num_tours
       }
       
       #apply targeted education for locals
+      pop = Learn(pop, education)
       for(i in 1:3){
         holdpop = pop[pop$type=="tourist" | pop$demo!=i,]
         subpop  = pop[pop$demo==i & pop$type=="local",]
@@ -62,9 +65,7 @@ RunModel = function(r, directory, demo.locals, demo.tours, num_locals, num_tours
       pop$knowledge[pop$knowledge>1] = 1
       
       #apply stochastic knowledge loss to locals and tourists
-      knowmod = rnorm(nrow(pop), forget, 0.1)
-      knowmod[knowmod<0] = 0
-      pop$knowledge = pop$knowledge - knowmod
+      pop = Forget(pop, forget)
    }
 }
 
