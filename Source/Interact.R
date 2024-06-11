@@ -1,5 +1,5 @@
-Interact = function(group1, group2, intprob, knowtrans){
-  #intprob = scenarios$tours_local[1]
+Interact = function(group1, group2, intprob, knowtrans, tourtolocoal){
+  #intprob = scenarios$tours_local[i]
   group1$interact = rbinom(nrow(group1), 1, intprob)
   reset=0
   
@@ -16,14 +16,15 @@ Interact = function(group1, group2, intprob, knowtrans){
     }else{
       inter = sample(1:nrow(group2), 1)
     }
-    
     #modify group1 person's knowledge
-    mvmt = (group2$knowledge[inter] - group1$knowledge[g1]) * (knowtrans + rnorm(1, 0, 0.1))
+    mvmt = (group2$knowledge[inter] - group1$knowledge[g1]) * (rnorm(1, knowtrans, 0.001))
     group1$knowledge[g1] = group1$knowledge[g1] + mvmt
-    
+
+    if(tourtolocoal==1){   
     #modify group2 person's knowledge
-    mvmt = (group1$knowledge[g1] - group2$knowledge[inter]) * (knowtrans + rnorm(1, 0, 0.1))
+    mvmt = (group1$knowledge[g1] - group2$knowledge[inter]) * (rnorm(1, knowtrans, 0.001))
     group2$knowledge[inter] = group2$knowledge[inter] + mvmt
+    } 
     
     if(reset==1){
       group2 = NULL

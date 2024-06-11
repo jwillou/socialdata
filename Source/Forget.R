@@ -1,6 +1,6 @@
-Forget = function(pop, forget){
-  #determine what is forgotten for each individual
-  knowmod = rnorm(nrow(pop), forget, 0.1)
+Forget = function(pop, forget, forget.amt){
+  #determine who forgets, and by how much
+  knowmod = rbinom(nrow(pop), 1, forget) * rnorm(nrow(pop), forget.amt, 0.01)
   
   #check for negative values and correct these
   knowmod[knowmod<0] = 0
