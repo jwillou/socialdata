@@ -22,12 +22,12 @@ forget.amt  = 0.05                 #magnitude of knowledge reduction
 knowtrans   = 0.1                  #amount of knowledge transfer possible at interactions
 education   = c(0.1, 0.05, 0.05)   #increased in the knowledge parameter average annually, by demo group
 
-#Interaction scenarios
+#Interaction scenarios & tours_tours == 0.1 & local_local == 0.8 & local_misd == 0.1
 tours_local.P = seq(0.0,1.0,0.1)   #likelihood of interacting within the year, within demographic groups
-tours_tours.P = seq(0.0,1.0,0.1)   #likelihood of interacting within the year, among and within demographic groups
-local_local.P = seq(0.0,1.0,0.1)   #likelihood of interacting within the year, within demographic groups
-local_misd.P  = seq(0.0,1.0,0.1)   #likelihood of interacting within the year, among demographic groups
-tourtolocoal  = 0.                 #can tourists reduce locals knowledge - 1=yes, 0=no
+tours_tours.P = 0.1 #seq(0.0,1.0,0.1)   #likelihood of interacting within the year, among and within demographic groups
+local_local.P = 0.8 #seq(0.0,1.0,0.1)   #likelihood of interacting within the year, within demographic groups
+local_misd.P  = 0.1 #seq(0.0,1.0,0.1)   #likelihood of interacting within the year, among demographic groups
+tourtolocoal  = 0                  #can tourists reduce locals knowledge - 1=yes, 0=no
 scenarios   = expand.grid(tours_local.P, tours_tours.P, local_local.P, local_misd.P)
 remove(tours_local.P, tours_tours.P, local_local.P, local_misd.P)                        
 colnames(scenarios) = c("tours_local", "tours_tours", "local_local", "local_misd")
