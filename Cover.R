@@ -11,9 +11,9 @@ outdir = paste(directory, "Output/", sep = "")
 #Source function scripts
 source(paste(directory, "/Source/FunctionSourcer.R", sep = ''))
 
-#Population characteristics
-demo.locals = c(0.5, 0.25, 0.25)   #assumes 3 demo groups, proportion in each group
-demo.tours  = c(0.5, 0.25, 0.25)   #assumes 3 demo groups, proportion in each group
+#Population characteristics (I am considering 4 groups to better reflect general racial groups/same as survey - White, Black, Asian, Native)
+demo.locals = c(0.94, 0.03, 0.02, 0.01)   #assumes 4 demo groups White, Black, Asian, Native: proportion data from (https://www.census.gov/quickfacts/fact/table/gulfshorescityalabama/BZA110221)
+demo.tours  = c(0.84, 0.09, 0.05, 0.02)   #assumes 4 demo groups White, Black, Asian, Native: proportion data from (https://www.gulfshores.com/sites/default/files/2022-12/GSOBT%20Summer%202022%20Visitor%20Profile%20Research.pdf)
 num_locals  = 100                  #number of locals
 num_tours   = 50                   #number of tourists
 years       = 25                   #number of years to run simulation
