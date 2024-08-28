@@ -2,7 +2,7 @@ library(scales)
 #setwd("/Users/jrw0107/Google Drive/My Drive/Willoughby lab/projects - active/dolphins and turtles/socialdata/")
 setwd("/Users/jannawilloughby/Google Drive/My Drive/Willoughby lab/projects - active/dolphins and turtles/socialdata/")
 
-dataindicator = "" #"fig4_interactamongdemo" #fig2_edlocalsandtourists fig1_edlocalsonly
+dataindicator = "fig1_edlocalsonly" #"fig4_interactamongdemo" #fig2_edlocalsandtourists fig1_edlocalsonly
 
 #load data
 data = read.table(paste("Output/", dataindicator, "/yearlysummary.csv", sep=""), header=F, sep=",")
@@ -84,7 +84,7 @@ for(r in 1:nrow(filtered_data)){
   filtered_data[,r] = as.numeric(as.character(filtered_data[,r]))
 }
 
-plot(-100, -100, type = "b", xlab = "Interaction Probability", ylab = "Mean Knowledge", main = "", pch = 19, col = colors3[1], cex = 1.2, lwd = 2, xlim = c(0,1),
+plot(-100, -100, type = "b", xlab = "Interaction Probability", ylab = "Mean Population Knowledge", main = "", pch = 19, col = colors3[1], cex = 1.2, lwd = 2, xlim = c(0,1),
      ylim = c(0,1)) #c(min(c(filtered_data$dem1toursK_Mean, filtered_data$dem2toursK_Mean, filtered_data$dem3toursK_Mean)) - 0.05,
             #max(c(filtered_data$dem1toursK_Mean, filtered_data$dem2toursK_Mean, filtered_data$dem3toursK_Mean)) + 0.05))
 
