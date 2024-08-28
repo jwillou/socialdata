@@ -1,0 +1,5 @@
+model,Intercept,Int_SE,tvalue,pvalue,Slope,Slope_SE,tvalue,pvalue,Fstat,R2,DF1,DF2
+mean knowledge~interaction probability between tourists and locals,,,,,,,,,,,,
+large group blue,0.97,0.00,1791.30,<0.001,0.00,0.00,0.96,0.36,0.92,0.09,1,9
+small group green,0.87,0.01,113.65,<0.001,0.07,0.01,5.74,<0.001,32.94,0.79,1,9
+small group yellow,0.86,0.00,259.08,<0.001,0.07,0.01,12.20,<0.001,148.77,0.94,1,9
