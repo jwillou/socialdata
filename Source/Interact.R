@@ -1,6 +1,7 @@
-Interact = function(group1, group2, intprob, knowtrans, tourtolocoal){
-  #intprob = scenarios$tours_local[i]
-  group1$interact = rbinom(nrow(group1), 1, intprob)
+Interact = function(group1, group2, intprob, adjust, knowtrans, tourtolocoal){
+  #intprob = scenarios$tours_local[r]
+  #adjust = scenarios$tours_localAdj[r]
+  group1$interact = rbinom(nrow(group1), 1, (intprob*adjust))
   reset=0
   
   for(g1 in 1:nrow(group1)){

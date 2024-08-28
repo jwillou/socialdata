@@ -11,7 +11,7 @@
 
 module load R/4.2.1
 
-cd /scratch/jrw0107_infoex
+cd /scratch/jrw0107_infoex/tourtolocal1
 
 Rscript Cover.R  
 
