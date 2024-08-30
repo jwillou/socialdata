@@ -18,31 +18,34 @@ demo.tours  = c(0.5, 0.25, 0.25)   #assumes 3 demo groups, proportion in each gr
 num_locals  = 100                  #number of locals
 num_tours   = 50                   #number of tourists
 years       = 25                   #number of years to run simulation
-forget      = 0.10                 #likelihood of stochastic knowledge reduction per individual per year
-forget.amt  = 0.10                 #magnitude of knowledge reduction 
-knowtrans   = 0.05                 #amount of knowledge transfer possible at interactions
-education   = c(0.1, 0.1, 0.1)     #potential increased in the knowledge parameter for each individual annually, by demo group
+forget      = 0.1#.10              #likelihood of stochastic knowledge reduction per individual per year
+forget.amt  = 0.05#.10             #magnitude of knowledge reduction 
+education   = c(0.2, 0.2, 0.2)     #potential increased in the knowledge parameter for each individual annually, by demo group
+ed.who      = "locals"             #who is educated: locals or all
+
+#Knowledge variations
+knowtrans.P = 0.05                 #amount of knowledge transfer possible at interactions: default 0.05, tested seq(0,0.5,0.05)
 
 #Interaction scenarios
-tours_local.P = seq(0.0,1.0,0.1)   #likelihood of interacting within the year, within demographic groups
+tours_local.P = seq(0,1.0,0.1)     #likelihood of interacting within the year, within demographic groups
 tours_local.A = c(1,1,0.5)         #interaction adjustment for each group, within demographic groups
-tours_tours.P = seq(0.1,0.1,0.1)   #likelihood of interacting within the year, among and within demographic groups
+tours_tours.P = 0.0#seq(0.1,0.1,0.1)   #likelihood of interacting within the year, among and within demographic groups
 tours_tours.A = 1                  #interaction adjustment for each group, among and within demographic groups
-local_local.P = seq(0.0,0.0,0.0)   #likelihood of interacting within the year, within demographic groups
+local_local.P = 0.0#seq(0.0,0.0,0.0)   #likelihood of interacting within the year, within demographic groups
 local_local.A = c(1,1,1)           #interaction adjustment for each group, within demographic groups
-local_misd.P  = seq(0.0,0.0,0.0)   #likelihood of interacting within the year, among demographic groups
+local_misd.P  = 0.0 #seq(0.0,0.5,0.1)   #likelihood of interacting within the year, among demographic groups
 local_misd.A  = 1                  #interaction adjustment for each group, among demographic groups
 tourtolocoal  = 1                  #can tourists reduce locals knowledge - 1=yes, 0=no
-scenarios   = expand.grid(tours_local.P, tours_tours.P, local_local.P, local_misd.P)
-remove(tours_local.P, tours_tours.P, local_local.P, local_misd.P)                        
-colnames(scenarios) = c("tours_local", "tours_tours", "local_local", "local_misd")
+scenarios   = expand.grid(tours_local.P, tours_tours.P, local_local.P, local_misd.P,knowtrans.P)
+remove(tours_local.P, tours_tours.P, local_local.P, local_misd.P,knowtrans.P)                        
+colnames(scenarios) = c("tours_local", "tours_tours", "local_local", "local_misd","knowtrans")
 
 #Model run parameters
 reps = 100                         #number of replicated runs
 
 #Run model iterating over parameters 
 for(r in 1:nrow(scenarios)){
-  RunModel(r, directory, demo.locals, demo.tours, num_locals, num_tours, years, forget, forget.amt, knowtrans, education, tourtolocoal, scenarios, reps, tours_local.A, tours_tours.A, local_local.A, local_misd.A)
+  RunModel(r, directory, demo.locals, demo.tours, num_locals, num_tours, years, forget, forget.amt, education, ed.who, tourtolocoal, scenarios, reps, tours_local.A, tours_tours.A, local_local.A, local_misd.A)
 }
 
 

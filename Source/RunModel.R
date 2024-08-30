@@ -1,4 +1,4 @@
-RunModel = function(r, directory, demo.locals, demo.tours, num_locals, num_tours, years, forget, forget.amt, education, tourtolocoal, scenarios, reps, tours_local.A, tours_tours.A, local_local.A, local_misd.A){
+RunModel = function(r, directory, demo.locals, demo.tours, num_locals, num_tours, years, forget, forget.amt, education, ed.who, tourtolocoal, scenarios, reps, tours_local.A, tours_tours.A, local_local.A, local_misd.A){
   #for(r in 1:nrow(scenarios)){
   knowtrans = scenarios$knowtrans[r]
   
@@ -58,7 +58,7 @@ RunModel = function(r, directory, demo.locals, demo.tours, num_locals, num_tours
       }
       
       #apply targeted education for locals
-      pop = Learn(pop, education)
+      pop = Learn(pop, education, ed.who)
       
       #apply stochastic knowledge loss to locals and tourists
       pop = Forget(pop, forget, forget.amt)
