@@ -1,15 +1,15 @@
 library(scales)
-#setwd("/Users/jrw0107/Google Drive/My Drive/Willoughby lab/projects - active/dolphins and turtles/socialdata/")
+setwd("/Users/jrw0107/Google Drive/My Drive/Willoughby lab/projects - active/dolphins and turtles/socialdata/")
 setwd("/Users/jannawilloughby/Google Drive/My Drive/Willoughby lab/projects - active/dolphins and turtles/socialdata/")
 
-dataindicator = "fig1_edlocalsonly" 
+#dataindicator = "fig1_edlocalsonly" 
 #dataindicator = "fig2_edrate_localsonly" 
 #dataindicator = "fig4a_edlocalsandtourists"
 #dataindicator = "fig4b_edlocalsandtourists"
 #dataindicator = "fig4c_edlocalsandtourists"
 #dataindicator = "fig4d_edlocalsandtourists"
 #dataindicator = "fig4e_edlocalsandtourists"
-#dataindicator = "fig4f_edlocalsandtourists"
+dataindicator = "fig4f_edlocalsandtourists"
 #dataindicator = "fig5_interactamongdemo"
 #dataindicator = ""
 
@@ -215,17 +215,17 @@ plot(-100, -100, type = "b", xlab = "Interaction Probability", ylab = "Mean Popu
 write.table(t(c("Intercept", "Int_SE",	"tvalue",	"pvalue",	"Slope", "Slope_SE",	"tvalue",	"pvalue",	"Fstat",	"R2",	"DF1", "DF2")), paste("Output/", dataindicator, "/reg_results.csv", sep=""), row.names=F, col.names=F, sep=",", append=F)
 model = lm(dem1toursK_Mean~tours_local, data=filtered_data)
 summary(model)
-segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[1], 0.8), lty=3, lwd=2)
+segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[1], 0.8), lty=1, lwd=2)
 write.table(t(c(summary(model)$coeff[1,], summary(model)$coeff[2,], summary(model)$fstatistic[1], summary(model)$r.squared, summary(model)$fstatistic[2], summary(model)$fstatistic[3])), paste("Output/", dataindicator, "/reg_results.csv", sep=""), row.names=F, col.names=F, sep=",", append=T)
 
 model = lm(dem2toursK_Mean~tours_local, data=filtered_data)
 summary(model)
-segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[2], 0.8), lty=3, lwd=2)
+segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[2], 0.8), lty=1, lwd=2)
 write.table(t(c(summary(model)$coeff[1,], summary(model)$coeff[2,], summary(model)$fstatistic[1], summary(model)$r.squared, summary(model)$fstatistic[2], summary(model)$fstatistic[3])), paste("Output/", dataindicator, "/reg_results.csv", sep=""), row.names=F, col.names=F, sep=",", append=T)
 
 model = lm(dem3toursK_Mean~tours_local, data=filtered_data)
 summary(model)
-segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[3], 0.8), lty=3, lwd=2)
+segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[3], 0.8), lty=1, lwd=2)
 write.table(t(c(summary(model)$coeff[1,], summary(model)$coeff[2,], summary(model)$fstatistic[1], summary(model)$r.squared, summary(model)$fstatistic[2], summary(model)$fstatistic[3])), paste("Output/", dataindicator, "/reg_results.csv", sep=""), row.names=F, col.names=F, sep=",", append=T)
 
 #Add Group data
@@ -251,17 +251,17 @@ plot(-100, -100, type = "b", xlab = "Interaction Probability", ylab = "Mean Popu
 write.table(t(c("Intercept", "Int_SE",	"tvalue",	"pvalue",	"Slope", "Slope_SE",	"tvalue",	"pvalue",	"Fstat",	"R2",	"DF1", "DF2")), paste("Output/", dataindicator, "/reg_results.csv", sep=""), row.names=F, col.names=F, sep=",", append=F)
 model = lm(dem1toursK_Mean~tours_local, data=filtered_data)
 summary(model)
-segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[1], 0.8), lty=3, lwd=2)
+segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[1], 0.8), lty=1, lwd=2)
 write.table(t(c(summary(model)$coeff[1,], summary(model)$coeff[2,], summary(model)$fstatistic[1], summary(model)$r.squared, summary(model)$fstatistic[2], summary(model)$fstatistic[3])), paste("Output/", dataindicator, "/reg_results.csv", sep=""), row.names=F, col.names=F, sep=",", append=T)
 
 model = lm(dem2toursK_Mean~tours_local, data=filtered_data)
 summary(model)
-segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[2], 0.8), lty=3, lwd=2)
+segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[2], 0.8), lty=1, lwd=2)
 write.table(t(c(summary(model)$coeff[1,], summary(model)$coeff[2,], summary(model)$fstatistic[1], summary(model)$r.squared, summary(model)$fstatistic[2], summary(model)$fstatistic[3])), paste("Output/", dataindicator, "/reg_results.csv", sep=""), row.names=F, col.names=F, sep=",", append=T)
 
 model = lm(dem3toursK_Mean~tours_local, data=filtered_data)
 summary(model)
-segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[3], 0.8), lty=3, lwd=2)
+segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[3], 0.8), lty=1, lwd=2)
 write.table(t(c(summary(model)$coeff[1,], summary(model)$coeff[2,], summary(model)$fstatistic[1], summary(model)$r.squared, summary(model)$fstatistic[2], summary(model)$fstatistic[3])), paste("Output/", dataindicator, "/reg_results.csv", sep=""), row.names=F, col.names=F, sep=",", append=T)
 
 #Add Group data
@@ -287,17 +287,17 @@ plot(-100, -100, type = "b", xlab = "Interaction Probability", ylab = "Mean Popu
 write.table(t(c("Intercept", "Int_SE",	"tvalue",	"pvalue",	"Slope", "Slope_SE",	"tvalue",	"pvalue",	"Fstat",	"R2",	"DF1", "DF2")), paste("Output/", dataindicator, "/reg_results.csv", sep=""), row.names=F, col.names=F, sep=",", append=F)
 model = lm(dem1toursK_Mean~tours_local, data=filtered_data)
 summary(model)
-segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[1], 0.8), lty=3, lwd=2)
+segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[1], 0.8), lty=1, lwd=2)
 write.table(t(c(summary(model)$coeff[1,], summary(model)$coeff[2,], summary(model)$fstatistic[1], summary(model)$r.squared, summary(model)$fstatistic[2], summary(model)$fstatistic[3])), paste("Output/", dataindicator, "/reg_results.csv", sep=""), row.names=F, col.names=F, sep=",", append=T)
 
 model = lm(dem2toursK_Mean~tours_local, data=filtered_data)
 summary(model)
-segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[2], 0.8), lty=3, lwd=2)
+segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[2], 0.8), lty=1, lwd=2)
 write.table(t(c(summary(model)$coeff[1,], summary(model)$coeff[2,], summary(model)$fstatistic[1], summary(model)$r.squared, summary(model)$fstatistic[2], summary(model)$fstatistic[3])), paste("Output/", dataindicator, "/reg_results.csv", sep=""), row.names=F, col.names=F, sep=",", append=T)
 
 model = lm(dem3toursK_Mean~tours_local, data=filtered_data)
 summary(model)
-segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[3], 0.8), lty=3, lwd=2)
+segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[3], 0.8), lty=1, lwd=2)
 write.table(t(c(summary(model)$coeff[1,], summary(model)$coeff[2,], summary(model)$fstatistic[1], summary(model)$r.squared, summary(model)$fstatistic[2], summary(model)$fstatistic[3])), paste("Output/", dataindicator, "/reg_results.csv", sep=""), row.names=F, col.names=F, sep=",", append=T)
 
 #Add Group data
@@ -323,17 +323,17 @@ plot(-100, -100, type = "b", xlab = "Interaction Probability", ylab = "Mean Popu
 write.table(t(c("Intercept", "Int_SE",	"tvalue",	"pvalue",	"Slope", "Slope_SE",	"tvalue",	"pvalue",	"Fstat",	"R2",	"DF1", "DF2")), paste("Output/", dataindicator, "/reg_results.csv", sep=""), row.names=F, col.names=F, sep=",", append=F)
 model = lm(dem1toursK_Mean~tours_local, data=filtered_data)
 summary(model)
-segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[1], 0.8), lty=3, lwd=2)
+segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[1], 0.8), lty=1, lwd=2)
 write.table(t(c(summary(model)$coeff[1,], summary(model)$coeff[2,], summary(model)$fstatistic[1], summary(model)$r.squared, summary(model)$fstatistic[2], summary(model)$fstatistic[3])), paste("Output/", dataindicator, "/reg_results.csv", sep=""), row.names=F, col.names=F, sep=",", append=T)
 
 model = lm(dem2toursK_Mean~tours_local, data=filtered_data)
 summary(model)
-segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[2], 0.8), lty=3, lwd=2)
+segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[2], 0.8), lty=1, lwd=2)
 write.table(t(c(summary(model)$coeff[1,], summary(model)$coeff[2,], summary(model)$fstatistic[1], summary(model)$r.squared, summary(model)$fstatistic[2], summary(model)$fstatistic[3])), paste("Output/", dataindicator, "/reg_results.csv", sep=""), row.names=F, col.names=F, sep=",", append=T)
 
 model = lm(dem3toursK_Mean~tours_local, data=filtered_data)
 summary(model)
-segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[3], 0.8), lty=3, lwd=2)
+segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[3], 0.8), lty=1, lwd=2)
 write.table(t(c(summary(model)$coeff[1,], summary(model)$coeff[2,], summary(model)$fstatistic[1], summary(model)$r.squared, summary(model)$fstatistic[2], summary(model)$fstatistic[3])), paste("Output/", dataindicator, "/reg_results.csv", sep=""), row.names=F, col.names=F, sep=",", append=T)
 
 #Add Group data
@@ -359,17 +359,17 @@ plot(-100, -100, type = "b", xlab = "Interaction Probability", ylab = "Mean Popu
 write.table(t(c("Intercept", "Int_SE",	"tvalue",	"pvalue",	"Slope", "Slope_SE",	"tvalue",	"pvalue",	"Fstat",	"R2",	"DF1", "DF2")), paste("Output/", dataindicator, "/reg_results.csv", sep=""), row.names=F, col.names=F, sep=",", append=F)
 model = lm(dem1toursK_Mean~tours_local, data=filtered_data)
 summary(model)
-segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[1], 0.8), lty=3, lwd=2)
+segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[1], 0.8), lty=1, lwd=2)
 write.table(t(c(summary(model)$coeff[1,], summary(model)$coeff[2,], summary(model)$fstatistic[1], summary(model)$r.squared, summary(model)$fstatistic[2], summary(model)$fstatistic[3])), paste("Output/", dataindicator, "/reg_results.csv", sep=""), row.names=F, col.names=F, sep=",", append=T)
 
 model = lm(dem2toursK_Mean~tours_local, data=filtered_data)
 summary(model)
-segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[2], 0.8), lty=3, lwd=2)
+segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[2], 0.8), lty=1, lwd=2)
 write.table(t(c(summary(model)$coeff[1,], summary(model)$coeff[2,], summary(model)$fstatistic[1], summary(model)$r.squared, summary(model)$fstatistic[2], summary(model)$fstatistic[3])), paste("Output/", dataindicator, "/reg_results.csv", sep=""), row.names=F, col.names=F, sep=",", append=T)
 
 model = lm(dem3toursK_Mean~tours_local, data=filtered_data)
 summary(model)
-segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[3], 0.8), lty=3, lwd=2)
+segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[3], 0.8), lty=1, lwd=2)
 write.table(t(c(summary(model)$coeff[1,], summary(model)$coeff[2,], summary(model)$fstatistic[1], summary(model)$r.squared, summary(model)$fstatistic[2], summary(model)$fstatistic[3])), paste("Output/", dataindicator, "/reg_results.csv", sep=""), row.names=F, col.names=F, sep=",", append=T)
 
 #Add Group data
@@ -395,17 +395,17 @@ plot(-100, -100, type = "b", xlab = "Interaction Probability", ylab = "Mean Popu
 write.table(t(c("Intercept", "Int_SE",	"tvalue",	"pvalue",	"Slope", "Slope_SE",	"tvalue",	"pvalue",	"Fstat",	"R2",	"DF1", "DF2")), paste("Output/", dataindicator, "/reg_results.csv", sep=""), row.names=F, col.names=F, sep=",", append=F)
 model = lm(dem1toursK_Mean~tours_local, data=filtered_data)
 summary(model)
-segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[1], 0.8), lty=3, lwd=2)
+segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[1], 0.8), lty=1, lwd=2)
 write.table(t(c(summary(model)$coeff[1,], summary(model)$coeff[2,], summary(model)$fstatistic[1], summary(model)$r.squared, summary(model)$fstatistic[2], summary(model)$fstatistic[3])), paste("Output/", dataindicator, "/reg_results.csv", sep=""), row.names=F, col.names=F, sep=",", append=T)
 
 model = lm(dem2toursK_Mean~tours_local, data=filtered_data)
 summary(model)
-segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[2], 0.8), lty=3, lwd=2)
+segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[2], 0.8), lty=1, lwd=2)
 write.table(t(c(summary(model)$coeff[1,], summary(model)$coeff[2,], summary(model)$fstatistic[1], summary(model)$r.squared, summary(model)$fstatistic[2], summary(model)$fstatistic[3])), paste("Output/", dataindicator, "/reg_results.csv", sep=""), row.names=F, col.names=F, sep=",", append=T)
 
 model = lm(dem3toursK_Mean~tours_local, data=filtered_data)
 summary(model)
-segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[3], 0.8), lty=3, lwd=2)
+segments(x0=0,y0=((0*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]),x1=1,y1=((1*summary(model)$coeff[2,1])+summary(model)$coeff[1,1]), col=alpha(colors3[3], 0.8), lty=1, lwd=2)
 write.table(t(c(summary(model)$coeff[1,], summary(model)$coeff[2,], summary(model)$fstatistic[1], summary(model)$r.squared, summary(model)$fstatistic[2], summary(model)$fstatistic[3])), paste("Output/", dataindicator, "/reg_results.csv", sep=""), row.names=F, col.names=F, sep=",", append=T)
 
 #Add Group data
